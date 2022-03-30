@@ -19,4 +19,9 @@ public class Account {
     public void withdraw (double amount) {
         balance -= amount; // balance = balance - amount
     }
+
+    @Override
+    public String toString() {
+        return "Konto z saldem=" + String.format("%.2f",balance);
+    }
 }
