@@ -23,12 +23,13 @@ public class TestBanking {
         System.out.println("Utworzono klienta z kontem: "+customer);
 
 
-        System.out.println("Wypłata 150,00");
-        account.withdraw(150);
-        System.out.println("Wpłata 22,50");
-        account.deposit(22.50);
-        System.out.println("Wypłata 47,62");
-        account.withdraw(47.62);
+        System.out.println("Wypłata 150,00 "+account.withdraw(150));
+        System.out.println("Wpłata 22,50 "+account.deposit(22.50));
+        System.out.println("Wypłata 47,62 "+ account.withdraw(47.62));
+
+        System.out.println("Wpłata -22,50 "+account.deposit(-22.50));
+        System.out.println("Wypłata 4700,62 "+ account.withdraw(4700.62));
+
 
         System.out.println("Klient po operacjach: "+customer);
 
