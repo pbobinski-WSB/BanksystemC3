@@ -5,7 +5,25 @@ public class Customer {
     private final String firsName;
     private final String lastName;
 
-    private Account account;
+    private Account [] accounts = new Account[5];
+
+    private int numberOfAccounts = 0;
+
+    public int getNumberOfAccounts() {
+        return numberOfAccounts;
+    }
+
+    public void addAccount(Account a) {
+        accounts[numberOfAccounts] = a;
+        numberOfAccounts++;
+    }
+
+    public Account getAccount(int i) {
+        if (i >= numberOfAccounts) {
+            return null;
+        }
+        return accounts[i];
+    }
 
     public Customer(String firsName, String lastName) {
         this.firsName = firsName;
@@ -20,20 +38,12 @@ public class Customer {
         return lastName;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
                 "firsName='" + firsName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", account=" + account +
+                ", number of accounts=" + numberOfAccounts +
                 '}';
     }
 }
