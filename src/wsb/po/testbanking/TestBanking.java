@@ -10,6 +10,8 @@ public class TestBanking {
 
         Bank bank = new Bank();
 
+        System.out.println("test push");
+
         bank.addCustomer("Simms", "Jane");
         bank.addCustomer("Bryant", "Owen");
         bank.addCustomer("Soley", "Tim");
