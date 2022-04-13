@@ -2,8 +2,8 @@ package wsb.po.banking;
 
 public class Customer {
 
-    private String firsName;
-    private String lastName;
+    private final String firsName;
+    private final String lastName;
 
     private Account account;
 
