@@ -28,4 +28,9 @@ public class CheckingAccount extends Account {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " limit w koncie = "+ overdraftProtection;
+    }
 }

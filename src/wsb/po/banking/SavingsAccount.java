@@ -8,4 +8,9 @@ public class SavingsAccount extends Account {
         super(balance);
         this.interestRate = interestRate;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " savings ir = "+interestRate;
+    }
 }
