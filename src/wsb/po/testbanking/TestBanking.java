@@ -1,8 +1,6 @@
 package wsb.po.testbanking;
 
-import wsb.po.banking.Account;
-import wsb.po.banking.Bank;
-import wsb.po.banking.Customer;
+import wsb.po.banking.*;
 
 public class TestBanking {
 
@@ -15,22 +13,22 @@ public class TestBanking {
         bank.addCustomer("Soley", "Tim");
         bank.addCustomer("Soley", "Maria");
 
-        Account account = new Account(500);
-        bank.getCustomer(0).addAccount(account);
-        account = new Account(200);
-        bank.getCustomer(0).addAccount(account);
-        account = new Account(200);
-        bank.getCustomer(1).addAccount(account);
-        account = new Account(1500);
-        bank.getCustomer(2).addAccount(account);
-        account = new Account(200);
-        bank.getCustomer(2).addAccount(account);
-        account = new Account(200);
-        bank.getCustomer(2).addAccount(account);
-        account = new Account(200);
-        bank.getCustomer(3).addAccount(account);
-        account = new Account(150);
-        bank.getCustomer(3).addAccount(account);
+        CheckingAccount caccount = new CheckingAccount(500);
+        bank.getCustomer(0).addAccount(caccount);
+        SavingsAccount saccount = new SavingsAccount(200,0);
+        bank.getCustomer(0).addAccount(saccount);
+        caccount = new CheckingAccount(200,100);
+        bank.getCustomer(1).addAccount(caccount);
+        saccount = new SavingsAccount(1500,5);
+        bank.getCustomer(2).addAccount(saccount);
+        caccount = new CheckingAccount(200,50);
+        bank.getCustomer(2).addAccount(caccount);
+        saccount = new SavingsAccount(200,10);
+        bank.getCustomer(2).addAccount(saccount);
+        caccount = new CheckingAccount(200);
+        bank.getCustomer(3).addAccount(caccount);
+        saccount = new SavingsAccount(150,2);
+        bank.getCustomer(3).addAccount(saccount);
 
 
         for (int i = 0; i < bank.getNumberOfCustomers(); i++) {
