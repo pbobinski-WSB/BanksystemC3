@@ -1,12 +1,18 @@
 package wsb.po.testbanking;
 
-import wsb.po.banking.*;
+import wsb.po.banking.domain.Bank;
+import wsb.po.banking.domain.CheckingAccount;
+import wsb.po.banking.domain.SavingsAccount;
+import wsb.po.banking.reports.CustomerReport;
 
 public class TestBanking {
 
     public static void main(String[] args) {
 
-        Bank bank = new Bank();
+        //Bank bank = new Bank(); ale możemy
+
+        Bank bank = Bank.getBank();
+
 
         bank.addCustomer("Simms", "Jane");
         bank.addCustomer("Bryant", "Owen");
@@ -31,12 +37,8 @@ public class TestBanking {
         bank.getCustomer(3).addAccount(saccount);
 
 
-        for (int i = 0; i < bank.getNumberOfCustomers(); i++) {
-            System.out.println("Customer ["+(i+1)+"] is "+bank.getCustomer(i));
-            for (int j = 0; j < bank.getCustomer(i).getNumberOfAccounts(); j++) {
-                System.out.println("\tAccount "+(j+1)+" "+bank.getCustomer(i).getAccount(j));
-            }
-        }
+        CustomerReport customerReport = new CustomerReport();
+        customerReport.generateRepotr();
 
 
     }

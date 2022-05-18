@@ -1,4 +1,4 @@
-package wsb.po.banking;
+package wsb.po.banking.domain;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,16 @@ public class Bank {
 
     private ArrayList<Customer> customers = new ArrayList<Customer>();
 
+    private static Bank bankInstance = null;
 
-    public Bank() {
+    public static Bank getBank() {
+        if (bankInstance == null) {
+            bankInstance = new Bank();
+        }
+        return bankInstance;
+    }
+
+    private Bank() {
     }
 
     public void addCustomer(String f, String l) {
