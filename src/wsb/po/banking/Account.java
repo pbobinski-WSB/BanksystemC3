@@ -12,20 +12,18 @@ public class Account {
         return balance;
     }
 
-    public boolean deposit (double amount) {
+    public void deposit (double amount) throws NegativeDepositException {
         if (amount < 0) {
-            return false;
+            throw new NegativeDepositException();
         }
         balance += amount; // balance = balance + amount
-        return true;
     }
 
-    public boolean withdraw (double amount) {
+    public void withdraw (double amount) throws OverdraftException{
         if (amount > balance) {
-            return false;
+            throw new OverdraftException("przekroczono saldo",amount - balance);
         }
         balance -= amount; // balance = balance - amount
-        return true;
     }
 
     @Override

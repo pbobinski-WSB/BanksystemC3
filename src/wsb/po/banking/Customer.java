@@ -1,28 +1,29 @@
 package wsb.po.banking;
 
+import java.util.ArrayList;
+
 public class Customer {
 
     private final String firsName;
     private final String lastName;
 
-    private Account [] accounts = new Account[5];
+    private ArrayList<Account> accounts = new ArrayList<Account>();
 
-    private int numberOfAccounts = 0;
+
 
     public int getNumberOfAccounts() {
-        return numberOfAccounts;
+        return accounts.size();
     }
 
     public void addAccount(Account a) {
-        accounts[numberOfAccounts] = a;
-        numberOfAccounts++;
+        accounts.add(a);
     }
 
     public Account getAccount(int i) {
-        if (i >= numberOfAccounts) {
+        if (i >= getNumberOfAccounts()) {
             return null;
         }
-        return accounts[i];
+        return accounts.get(i);
     }
 
     public Customer(String firsName, String lastName) {
@@ -43,7 +44,7 @@ public class Customer {
         return "Customer{" +
                 "firsName='" + firsName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", number of accounts=" + numberOfAccounts +
+                ", number of accounts=" + getNumberOfAccounts() +
                 '}';
     }
 }
